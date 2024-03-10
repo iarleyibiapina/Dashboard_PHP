@@ -25,14 +25,18 @@ class Core
 
                 [$currentController, $action] = explode('@', $controller);
 
-                require_once __DIR__ . "/../controllers/$currentController.php";
-                $newController = new $currentController();
+                // require_once __DIR__ . "/../Controller/$currentController.php";
+                // var_dump($currentController);
+                // usar call_user_func;
+                $callController = '\\App\\Controller\\' . $currentController;
+                $newController = new $callController();
+                // $newController = new $currentController();
                 $newController->$action($matches);
             }
         }
 
         if (!$routerFound) {
-            require_once __DIR__ . "/../controllers/NotFoundController.php";
+            // require_once __DIR__ . "/../Controller/NotFoundController.php";
             $controller = new NotFoundController();
             $controller->index();
         }
