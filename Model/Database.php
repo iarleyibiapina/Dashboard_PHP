@@ -10,7 +10,7 @@ class Database
     public static function getConnection()
     {
         try {
-            $pdo = new PDO("mysql:dbname=teste;host=localhost", "root", "");
+            $pdo = new PDO(DRIVER . ': host=' . HOST . '; dbname=' . DBNAME . ';port=' . PORT, USER, PASSWORD);
             return $pdo;
         } catch (PDOException $err) {
             return $err;

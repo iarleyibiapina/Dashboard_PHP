@@ -5,7 +5,7 @@ namespace App\Model;
 use PDO;
 use App\Model\Database;
 
-class UserModel extends Database
+class User extends Database
 {
     private $pdo;
 
@@ -16,7 +16,11 @@ class UserModel extends Database
 
     public function get()
     {
-        $stm = $this->pdo->query("SELECT * FROM users");
+        echo "<pre>";
+        var_dump($this->pdo);
+        echo "</pre>";
+        $stm = $this->pdo->prepare("SELECT * FROM users");
+        $stm->execute();
         if ($stm->rowCount() > 0) {
             return $stm->fetchAll(PDO::FETCH_ASSOC);
         } else {
