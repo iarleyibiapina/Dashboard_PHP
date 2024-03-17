@@ -1,6 +1,6 @@
 <?php
 $title = "Error - SB Admin";
-include './partials/header.php' ?>
+require VIEW_URL . 'sistema/partials/header.php' ?>
 
 <body>
     <div id="layoutError">
@@ -12,7 +12,7 @@ include './partials/header.php' ?>
                             <div class="text-center mt-4">
                                 <img class="mb-4 img-error" src="assets/img/error-404-monochrome.svg" />
                                 <p class="lead">This requested URL was not found on this server.</p>
-                                <a href="index.html">
+                                <a href="index.phpx ">
                                     <i class="fas fa-arrow-left me-1"></i>
                                     Return to Dashboard
                                 </a>

@@ -1,6 +1,6 @@
 <?php
 $title = "Error - SB Admin";
-include './partials/header.php' ?>
+include VIEW_URL . 'sistema/partials/header.php' ?>
 
 <body>
     <div id="layoutError">
@@ -12,7 +12,7 @@ include './partials/header.php' ?>
                             <div class="text-center mt-4">
                                 <h1 class="display-1">500</h1>
                                 <p class="lead">Internal Server Error</p>
-                                <a href="index.html">
+                                <a href="index.PHP">
                                     <i class="fas fa-arrow-left me-1"></i>
                                     Return to Dashboard
                                 </a>
