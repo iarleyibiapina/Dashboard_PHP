@@ -25,20 +25,31 @@ class Core
 
                 [$currentController, $action] = explode('@', $controller);
 
-                // require_once __DIR__ . "/../Controller/$currentController.php";
-                // var_dump($currentController);
-                // usar call_user_func;
                 $callController = '\\App\\Controller\\' . $currentController;
-                $newController = new $callController();
-                // $newController = new $currentController();
-                $newController->$action($matches);
+
+                try {
+                    call_user_func_array([new $callController, $action], [$matches]);
+                } catch (\Throwable $th) {
+                    self::notFound(500);
+                }
             }
         }
 
         if (!$routerFound) {
-            // require_once __DIR__ . "/../Controller/NotFoundController.php";
-            $controller = new NotFoundController();
-            $controller->index();
+            self::notFound(404);
         }
+    }
+
+    /**
+     * Retorna uma pagina de erro com base no codigo enviado pelo parametro.
+     *
+     * @param integer $code Codigo de erro.
+     * @return void Uma pagina de erro com base no codigo enviado.
+     */
+    private static function notFound(int $code = 500)
+    {
+        $methodError = 'code' . $code;
+        $notFound = '\\App\\Controller\\NotFoundController';
+        call_user_func_array([new $notFound, $methodError], []);
     }
 }
