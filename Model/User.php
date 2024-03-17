@@ -5,7 +5,7 @@ namespace App\Model;
 use PDO;
 use App\Model\Database;
 
-class User extends Database
+class User extends Model
 {
     private $pdo;
 
