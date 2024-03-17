@@ -32,7 +32,7 @@ include VIEW_URL . '/sistema/partials/header.php';
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                             <a class="small" href="password.php">Forgot Password?</a>
                                             <div class="d-flex align-items-center gap-2">
-                                                <a class="btn btn-primary" href="./sistema/home.php">Login</a>
+                                                <a class="btn btn-primary" href="./home">Login</a>
 
                                             </div>
                                         </div>
