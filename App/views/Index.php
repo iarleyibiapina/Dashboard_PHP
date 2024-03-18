@@ -4,6 +4,8 @@ $title = "Login - SB Admin";
 include VIEW_URL . '/sistema/partials/header.php';
 ?>
 
+
+
 <body class="bg-primary">
     <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">

@@ -10,7 +10,7 @@ class Database
     public static function getConnection()
     {
         try {
-            $pdo = new PDO(DRIVER . ': host=' . HOST . '; dbname=' . DBNAME . ';port=' . PORT, USER, PASSWORD);
+            $pdo = new PDO($_ENV['DBDRIVER'] . ': host=' . $_ENV['DBHOST'] . '; dbname=' . $_ENV['DBNAME'] . ';port=' . $_ENV['DBPORT'], $_ENV['DBUSER'], $_ENV['DBPASSWORD']);
             return $pdo;
         } catch (PDOException $err) {
             return $err;
