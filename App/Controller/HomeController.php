@@ -10,8 +10,8 @@ class HomeController extends RenderView
     public function index()
     {
         $this->loadView(
-            'index',
-            []
+            'sistema/Home',
+            ["User" => "Iarley"]
         );
     }
 

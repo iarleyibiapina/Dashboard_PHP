@@ -1,14 +1,12 @@
 <?php
 // simulando dados usuario
-include '../../config/user.php';
-
 $title = "Dashboard - SB Admin";
-include './partials/header.php' ?>
+include VIEW_URL . 'sistema/partials/header.php' ?>
 
-<?php include './partials/navbar.php'; ?>
+<?php include VIEW_URL . 'sistema/partials/navbar.php'; ?>
 <div id="layoutSidenav">
     <div id="layoutSidenav_nav">
-        <?php include './partials/sidebar.php' ?>
+        <?php include VIEW_URL . 'sistema/partials/sidebar.php' ?>
     </div>
     <div id="layoutSidenav_content">
         <main>
@@ -105,4 +103,4 @@ include './partials/header.php' ?>
 </div>
 
 
-<?php include './partials/footer.php' ?>
+<?php include VIEW_URL . 'sistema/partials/footer.php' ?>

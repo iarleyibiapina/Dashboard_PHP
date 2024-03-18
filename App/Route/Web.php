@@ -7,7 +7,8 @@ class Web
     public static function routes()
     {
         return [
-            '/'           => 'HomeController@index',
+            '/'           => 'IndexController@index',
+            '/home'       => 'HomeController@index',
             '/teste'      => 'HomeController@teste',
             '/outro'      => 'HomeController@outro',
             '/users/'     => 'UserController@index',

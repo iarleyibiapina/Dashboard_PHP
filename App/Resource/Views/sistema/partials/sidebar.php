@@ -18,11 +18,9 @@
                 </a>
             </div>
         </div>
-        <?php if ($isLoged) : ?>
             <div class="sb-sidenav-footer">
                 <div class="small">Logged in as:</div>
-                <?= $nameUser ?>
+                <?= $User ?>
             </div>
-        <?php endif; ?>
     </nav>
 </div>
