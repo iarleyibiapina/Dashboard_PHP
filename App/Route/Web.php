@@ -19,7 +19,7 @@ Route::get('/teste',         'UserController@teste');
 Route::get('/teste/{id}',    'UserController@show');
 // 
 Route::get('/charts',   'ChartController@index');
-Route::get('/table',    'UserController@index');
+Route::get('/table',    'TableController@index');
 Route::get('/outro',    'UserController@show');
 Route::get('/users',          'UserController@index');
 Route::get('/users/{id}',    'UserController@show');
