@@ -1,6 +1,5 @@
 <?php
-$title = "Password - SB Admin";
-include './sistema/partials/header.php' ?>
+include VIEW_URL . '/sistema/partials/header.php' ?>
 
 <body class="bg-primary">
     <div id="layoutAuthentication">
@@ -21,13 +20,13 @@ include './sistema/partials/header.php' ?>
                                             <label for="inputEmail">Email address</label>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                            <a class="small" href="index.php">Return to login</a>
+                                            <a class="small" href="<?= BASE_URL ?>">Return to login</a>
                                             <a class="btn btn-primary" href="#">Reset Password</a>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="card-footer text-center py-3">
-                                    <div class="small"><a href="register.php">Need an account? Sign up!</a></div>
+                                    <div class="small"><a href="<?= BASE_URL ?>register">Need an account? Sign up!</a></div>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +50,7 @@ include './sistema/partials/header.php' ?>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="js/scripts.js"></script>
+    <script src="<?= ASSETS ?>Js/scripts.js"></script>
 </body>
 
 </html>

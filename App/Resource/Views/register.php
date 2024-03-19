@@ -1,6 +1,5 @@
 <?php
-$title = "Register - SB Admin";
-include './sistema/partials/header.php' ?>
+include VIEW_URL . '/sistema/partials/header.php' ?>
 
 <body class="bg-primary ">
     <div id="layoutAuthentication">
@@ -44,15 +43,15 @@ include './sistema/partials/header.php' ?>
                                         <div class="mt-4 mb-0">
 
                                             <div class="d-grid">
-                                                <a class="btn btn-primary btn-block" href="index.php">Create Account</a>
-                                                <a class="btn btn-primary  bg-danger mt-2" href="index.php">Cancelar</a>
+                                                <a class="btn btn-primary btn-block" href="<?= BASE_URL ?>">Create Account</a>
+                                                <a class="btn btn-primary  bg-danger mt-2" href="<?= BASE_URL ?>">Cancelar</a>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="card-footer text-center py-3">
                                     <div class="small">
-                                        <a href="index.php">Have an account? Go to login</a>
+                                        <a href="<?= BASE_URL ?>">Have an account? Go to login</a>
                                     </div>
 
                                 </div>
@@ -78,7 +77,7 @@ include './sistema/partials/header.php' ?>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="js/scripts.js"></script>
+    <script src="<?= ASSETS ?>Js/scripts.js"></script>
 </body>
 
 </html>

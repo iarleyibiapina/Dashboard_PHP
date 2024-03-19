@@ -31,7 +31,7 @@ include VIEW_URL . '/sistema/partials/header.php';
                                             <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                            <a class="small" href="password.php">Forgot Password?</a>
+                                            <a class="small" href="password">Forgot Password?</a>
                                             <div class="d-flex align-items-center gap-2">
                                                 <a class="btn btn-primary" href="./home">Login</a>
 
@@ -42,7 +42,7 @@ include VIEW_URL . '/sistema/partials/header.php';
                                 <div class="card-footer text-center py-3">
 
                                     <div class="small">
-                                        <a href="register.php">Need an account? Sign up!</a>
+                                        <a href="register">Need an account? Sign up!</a>
                                     </div>
                                 </div>
                             </div>

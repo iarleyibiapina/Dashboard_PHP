@@ -15,4 +15,24 @@ class IndexController extends RenderView
             ]
         );
     }
+
+    public function password()
+    {
+        $this->loadView(
+            'password',
+            [
+                'title' => 'Password - SB Admin',
+            ]
+        );
+    }
+
+    public function register()
+    {
+        $this->loadView(
+            'register',
+            [
+                'title' => 'Register - SB Admin',
+            ]
+        );
+    }
 }

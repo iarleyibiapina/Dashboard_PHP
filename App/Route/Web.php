@@ -8,6 +8,8 @@ class Web
     {
         return [
             '/'           => 'IndexController@index',
+            '/password'   => 'IndexController@password',
+            '/register'   => 'IndexController@register',
             '/home'       => 'HomeController@index',
             '/teste'      => 'HomeController@teste',
             '/charts'     => 'ChartController@index',
