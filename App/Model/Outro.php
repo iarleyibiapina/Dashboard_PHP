@@ -2,17 +2,11 @@
 
 namespace App\Model;
 
-class User extends Model
+class Outro extends Model
 {
     // extende da Model (get, create, update, delete)
 
-
-    /**
-     * Define o nome da tabela para consultas
-     *
-     * @var string Nome tabela
-     */
-    protected $table = "users";
+    protected $table;
 
     /**
      * Colunas a serem modificadas na tabelas.

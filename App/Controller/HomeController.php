@@ -17,11 +17,4 @@ class HomeController extends RenderView
             ]
         );
     }
-
-    public function teste()
-    {
-        $teste = new User();
-        $outro = $teste->get();
-        var_dump($outro);
-    }
 }
