@@ -82,7 +82,7 @@ include VIEW_URL . 'sistema/partials/header.php' ?>
                         DataTable Example
                     </div>
                     <div class="card-body">
-                        <?php include './partials/dataSimple.php' ?>
+                        <?php include VIEW_URL . 'sistema/partials/dataSimple.php' ?>
                     </div>
                 </div>
             </div>

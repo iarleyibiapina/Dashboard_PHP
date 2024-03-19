@@ -1,25 +1,21 @@
 <?php
-// simulando dados usuario
-include '../../config/user.php';
+include VIEW_URL . 'sistema/partials/header.php' ?>
 
-$title = "Charts - SB Admin";
-include './partials/header.php' ?>
-
-<?php include './partials/navbar.php'; ?>
+<?php include VIEW_URL . 'sistema/partials/navbar.php'; ?>
 
 <body class="sb-nav-fixed">
 
     <div id="layoutSidenav">
 
         <div id="layoutSidenav_nav">
-            <?php include './partials/sidebar.php' ?>
+            <?php include VIEW_URL . 'sistema/partials/sidebar.php' ?>
         </div>
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
                     <h1 class="mt-4">Charts</h1>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item"><a href="home.php">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="home">Dashboard</a></li>
                         <li class="breadcrumb-item active">Charts</li>
                     </ol>
                     <div class="card mb-4">
@@ -75,4 +71,4 @@ include './partials/header.php' ?>
             </footer>
         </div>
     </div>
-    <?php include './partials/footer.php' ?>
+    <?php include VIEW_URL . 'sistema/partials/footer.php' ?>

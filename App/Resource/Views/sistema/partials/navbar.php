@@ -16,17 +16,14 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <!-- caso nao logado -->
-                <?php if ($isLoged) : ?>
-                    <!-- abrir modal -->
-                    <!-- pag de config perfil, alterar tema -->
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                    <hr class="dropdown-divider" />
-                    <li><a class="dropdown-item text-danger " href="../index.php">Logout</a></li>
+                <!-- abrir modal -->
+                <!-- pag de config perfil, alterar tema -->
+                <li><a class="dropdown-item" href="#!">Settings</a></li>
+                <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                <hr class="dropdown-divider" />
+                <li><a class="dropdown-item text-danger " href="<?= BASE_URL ?>">Logout</a></li>
         </li>
-    <?php endif;  ?>
-    <!--  -->
+        <!--  -->
     </ul>
     </li>
     </ul>
