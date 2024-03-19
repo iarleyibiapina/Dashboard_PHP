@@ -4,6 +4,8 @@ namespace App\Core;
 
 use App\Controller\NotFoundController;
 
+// Implementar melhor URL com metodos, verificar se input hidden _method ou se getmethod();
+
 class Core
 {
     public function run($routes)
@@ -15,15 +17,15 @@ class Core
         ($url != '/') ? $url = rtrim($url, '/') : $url;
         $routerFound = false;
 
-        foreach ($routes as $route => $controller) {
+        foreach ($routes as $route) {
             // expressao regular para url
-            $pattern = '#^' . preg_replace('/{id}/', '(\w+)', $route) . '$#';
+            $pattern = '#^' . preg_replace('/{id}/', '(\w+)', $route['path']) . '$#';
 
             if (preg_match($pattern, $url, $matches)) {
                 array_shift($matches);
                 $routerFound = true;
 
-                [$currentController, $action] = explode('@', $controller);
+                [$currentController, $action] = explode('@', $route['action']);
 
                 $callController = '\\App\\Controller\\' . $currentController;
 
