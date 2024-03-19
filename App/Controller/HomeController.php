@@ -11,7 +11,10 @@ class HomeController extends RenderView
     {
         $this->loadView(
             'sistema/Home',
-            ["User" => "Iarley"]
+            [
+                "User" => "Iarley",
+                "Title" => "Home",
+            ]
         );
     }
 

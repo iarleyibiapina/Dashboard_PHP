@@ -4,14 +4,15 @@ namespace App\Controller;
 
 use App\Utils\RenderView;
 
-class IndexController extends RenderView
+class ChartController extends RenderView
 {
     public function index()
     {
         $this->loadView(
-            'index',
+            'sistema/charts',
             [
-                'title' => 'Login - SB Admin',
+                "User" => "Iarley",
+                "title" => "Charts - SB Admin",
             ]
         );
     }

@@ -4,14 +4,15 @@ namespace App\Controller;
 
 use App\Utils\RenderView;
 
-class IndexController extends RenderView
+class TableController extends RenderView
 {
     public function index()
     {
         $this->loadView(
-            'index',
+            'sistema/tables',
             [
-                'title' => 'Login - SB Admin',
+                "User" => "Iarley",
+                "title" => "Tables - SB Admin",
             ]
         );
     }
