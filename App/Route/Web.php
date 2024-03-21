@@ -17,7 +17,7 @@ Route::get('/register',      'IndexController@register');
 Route::post('/register',     'IndexController@create');
 Route::get('/home',          'HomeController@index');
 Route::get('/charts',         'ChartController@index');
-Route::get('/table',          'UserController@index');
+Route::get('/table',          'TableController@index');
 // Testes
 Route::get('/testaConexao',  'TesteController@testaConexao');
 // Usando model usuario

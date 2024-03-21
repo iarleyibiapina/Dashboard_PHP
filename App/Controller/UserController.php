@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Model\User;
 use App\Utils\RenderView;
+use App\Request\Request;
 
 class UserController extends RenderView
 {
@@ -19,10 +20,11 @@ class UserController extends RenderView
     public function show($id)
     {
         $id_user = $id[0];
-        print($id_user);
         $user = new User();
         $resultado = $user->find($id_user);
+        echo "<pre>";
         var_dump($resultado);
+        echo "</pre>";
     }
     public function create()
     {

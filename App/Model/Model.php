@@ -8,7 +8,6 @@ use PDOStatement;
 
 /** 
  * Extends from Database, and inherit the models.
- * 
  */
 class Model extends Database
 {
@@ -59,12 +58,12 @@ class Model extends Database
     }
 
     /**
-     * Método responsável por executar queries dentro do banco de dados
+     * Método responsável por executar queries dentro do banco de dados 
      * @param  string $query
      * @param  array  $params
      * @return \PDOStatement
      */
-    public function execute($query, $params = [])
+    public function modelExecute($query, $params = [])
     {
         try {
             $statement = $this->pdo->prepare($query);
@@ -90,7 +89,6 @@ class Model extends Database
             return [];
         }
     }
-
     /**
      * Procura por uma linha no banco com base no id.
      *
@@ -99,31 +97,36 @@ class Model extends Database
      */
     public function find($id): array
     {
-        $stm = $this->pdo->prepare("SELECT * FROM $this->table WHERE id = :id");
-        $stm->bindValue(':id', $id);
+        $stm = $this->pdo->prepare("SELECT * FROM $this->table WHERE $this->primaryKey = :idBind");
+        $stm->bindValue(':idBind', $id);
         $stm->execute();
-        // $stm->execute([
-        //     ':id' => $id
-        // ]);
-        return $stm->fetch(PDO::FETCH_ASSOC);
+        if ($stm->rowCount() > 0) {
+            return $stm->fetch(PDO::FETCH_ASSOC);
+        } else {
+            return ["error" => "Id não existente"];
+        }
     }
 
 
     public function where()
     {
     }
+
+    /* TRABALHAS AINDA */
     public function create($values): void
     {
         //DADOS DA QUERY
         $fields = array_keys($values);
+        // cria ? com base no tamanho do array
         $binds = array_pad([], count($fields), '?');
 
         //MONTA QUERY 
         $query = 'INSERT INTO ' . $this->table . ' (' . implode(',', $fields) . ') VALUES (' . implode(',', $binds) . ')';
 
-        //EXECUTA O INSERT 
-        $this->execute($query, array_values($values));
+        //EXECUTA O INSERT, e fazendo o tratamento de dados no execute; 
+        $this->modelExecute($query, array_values($values));
     }
+    /* TRABALHAR AINDA */
     public function update($id, $datas): void
     {
         //dados da query
@@ -147,6 +150,6 @@ class Model extends Database
         $query = 'DELETE FROM ' . $this->table . ' WHERE ' .  $this->primaryKey . '=' . $id;
 
         //executa a query
-        $this->execute($query);
+        $this->modelExecute($query);
     }
 }

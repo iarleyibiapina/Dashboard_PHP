@@ -21,7 +21,11 @@ class User extends Model
      *
      * @var array Cada valor é uma coluna.
      */
-    protected $collums;
+    protected $collums = [
+        'nome',
+        'idade',
+        'email',
+    ];
 
     /**
      * Nome da coluna do id primario
