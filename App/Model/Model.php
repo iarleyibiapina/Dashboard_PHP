@@ -3,8 +3,6 @@
 namespace App\Model;
 
 use PDO;
-use PDOException;
-use PDOStatement;
 
 /** 
  * Extends from Database, and inherit the models.
@@ -60,23 +58,6 @@ class Model extends Database
     public function isConected(): PDO
     {
         return $this->pdo;
-    }
-
-    /**
-     * Método responsável por executar queries dentro do banco de dados 
-     * @param  string $query
-     * @param  array  $params
-     * @return \PDOStatement
-     */
-    public function modelExecute($query, $params = [])
-    {
-        try {
-            $statement = $this->pdo->prepare($query);
-            $statement->execute($params);
-            return $statement;
-        } catch (PDOException $e) {
-            die('ERROR: ' . $e->getMessage());
-        }
     }
 
     /**
@@ -138,10 +119,28 @@ class Model extends Database
      *
      * @param int $id
      * @param array $datas
-     * @return void
+     * @return string|bool
      */
-    public function update($id, $datas): void
+    public function update($id, $datas): string|bool
     {
+        var_dump(array_keys($datas));
+        echo "<br>";
+        var_dump($this->collums);
+        echo "<br>";
+        // comparar tamanho do array request com array definido em model
+        if (count($datas) > count($this->collums)) {
+            return print("Coluna Request maior que coluna definida");
+        }
+
+        // comparar chaves de array enviado com valores do array definido em model
+        // foreach ($this->collums as $collum) {
+        //     if (array_keys($datas) !== array_values($collum)) {
+        //         return print("chave diferente \n <br>");
+        //     }
+        // }
+
+
+
         //dados da query
         $stringzao = [];
         foreach ($datas as $campo => $data) {
@@ -154,17 +153,16 @@ class Model extends Database
         }
         $stringzao = implode(', ', $stringzao);
 
-        // colunas
-        // $this->collums;
-
         //monta query
-        $query = 'UPDATE teste.' . $this->table . ' SET ' . $stringzao . ' WHERE ' .  $this->primaryKey . '= :idBind';
-
+        $query = 'UPDATE ' . $this->table . ' SET ' . $stringzao . ' WHERE ' .  $this->primaryKey . '= :idBind';
         $stmt = $this->pdo->prepare($query);
+
+        // executa
         $stmt->bindValue(':idBind', $id);
 
+        return true;
         //executar
-        $stmt->execute();
+        // if($stmt->execute()) return true;
     }
     public function delete($id): void
     {
