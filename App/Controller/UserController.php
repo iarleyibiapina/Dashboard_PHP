@@ -9,10 +9,11 @@ class UserController extends RenderView
 {
     public function index()
     {
-        $this->loadView(
-            'user',
-            []
-        );
+        $usuarioModel = new User();
+        $resposta = $usuarioModel->get();
+        echo "<pre>";
+        var_dump($resposta);
+        echo "</pre>";
     }
 
     public function show($id)
@@ -23,16 +24,9 @@ class UserController extends RenderView
         $resultado = $user->find($id_user);
         var_dump($resultado);
     }
-
-    public function teste()
-    {
-        $teste = new User();
-        $outro = $teste->get();
-        var_dump($outro);
-    }
     public function create()
     {
-    $teste = new User();
+        $teste = new User();
         $teste->create([
             'nome' => 'juj',
             'idade' => '100',

@@ -53,6 +53,11 @@ class Model extends Database
         $this->pdo = Database::getConnection();
     }
 
+    public function isConected()
+    {
+        return $this->pdo;
+    }
+
     /**
      * Método responsável por executar queries dentro do banco de dados
      * @param  string $query
@@ -77,13 +82,13 @@ class Model extends Database
      */
     public function get(): array
     {
-            $stm = $this->pdo->prepare("SELECT * FROM $this->table");
-            $stm->execute();
-            if ($stm->rowCount() > 0) {
-                return $stm->fetchAll(PDO::FETCH_ASSOC);
-            } else {
-                return [];
-            }
+        $stm = $this->pdo->prepare("SELECT * FROM $this->table");
+        $stm->execute();
+        if ($stm->rowCount() > 0) {
+            return $stm->fetchAll(PDO::FETCH_ASSOC);
+        } else {
+            return [];
+        }
     }
 
     /**
@@ -103,7 +108,7 @@ class Model extends Database
         return $stm->fetch(PDO::FETCH_ASSOC);
     }
 
-    
+
     public function where()
     {
     }
@@ -112,37 +117,36 @@ class Model extends Database
         //DADOS DA QUERY
         $fields = array_keys($values);
         $binds = array_pad([], count($fields), '?');
-            
+
         //MONTA QUERY 
         $query = 'INSERT INTO ' . $this->table . ' (' . implode(',', $fields) . ') VALUES (' . implode(',', $binds) . ')';
-            
+
         //EXECUTA O INSERT 
         $this->execute($query, array_values($values));
-
     }
     public function update($id, $datas): void
     {
         //dados da query
         $stringzao = [];
         foreach ($datas as $campo => $data) {
-            $stringzao[] = "{$campo}={$data}"; 
+            $stringzao[] = "{$campo}={$data}";
         }
         $stringzao = implode(', ', $stringzao);
-        
+
         //monta query
-        $query = 'UPDATE ' . $this->table . ' SET ' . $stringzao . ' WHERE ' .  $this->primaryKey .'=' . $id;
-        
+        $query = 'UPDATE ' . $this->table . ' SET ' . $stringzao . ' WHERE ' .  $this->primaryKey . '=' . $id;
+
         $stmt = $this->pdo->prepare($query);
         //executar
-        var_dump($stmt->execute());
+        $stmt->execute();
         // $this->execute($query, array_values($data));
     }
     public function delete($id): void
     {
-         // MONTA QUERY
-         $query = 'DELETE FROM ' . $this->table . ' WHERE ' .  $this->primaryKey .'=' . $id;
+        // MONTA QUERY
+        $query = 'DELETE FROM ' . $this->table . ' WHERE ' .  $this->primaryKey . '=' . $id;
 
-         //executa a query
-         $this->execute($query);
+        //executa a query
+        $this->execute($query);
     }
 }
