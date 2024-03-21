@@ -26,7 +26,7 @@ class UserController extends RenderView
         var_dump($resultado);
         echo "</pre>";
     }
-    public function create()
+    public function create($data = null)
     {
         $teste = new User();
         $teste->create([
@@ -36,13 +36,13 @@ class UserController extends RenderView
         ]);
     }
 
-    /* broken */
-    public function update()
+    public function update($id, $data = null)
     {
+        $id_user = $id[0];
         $teste = new User();
-        $teste->update(4, [
+        $teste->update($id_user, [
             'nome' => 'uju',
-            'idade' => '200',
+            'idade' => 200,
             'email' => 'yyy@yy',
         ]);
         var_dump($teste);

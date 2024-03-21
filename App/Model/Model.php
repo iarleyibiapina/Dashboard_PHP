@@ -36,7 +36,7 @@ class Model extends Database
      *
      * @var array Cada valor é uma coluna
      */
-    protected $columns = '';
+    protected $collums = '';
 
 
     /**
@@ -132,22 +132,39 @@ class Model extends Database
         $this->modelExecute($query, array_values($values));
     }
     /* TRABALHAR AINDA */
+
+    /**
+     * Usar colunas ja definidas pela model
+     *
+     * @param int $id
+     * @param array $datas
+     * @return void
+     */
     public function update($id, $datas): void
     {
         //dados da query
         $stringzao = [];
         foreach ($datas as $campo => $data) {
-            $stringzao[] = "{$campo}={$data}";
+            // se string usar '' senao nao usar '';
+            if (gettype($data) == 'string') {
+                $stringzao[] = "{$campo}='{$data}'";
+            } else {
+                $stringzao[] = "{$campo}={$data}";
+            }
         }
         $stringzao = implode(', ', $stringzao);
 
+        // colunas
+        // $this->collums;
+
         //monta query
-        $query = 'UPDATE ' . $this->table . ' SET ' . $stringzao . ' WHERE ' .  $this->primaryKey . '=' . $id;
+        $query = 'UPDATE teste.' . $this->table . ' SET ' . $stringzao . ' WHERE ' .  $this->primaryKey . '= :idBind';
 
         $stmt = $this->pdo->prepare($query);
+        $stmt->bindValue(':idBind', $id);
+
         //executar
         $stmt->execute();
-        // $this->execute($query, array_values($data));
     }
     public function delete($id): void
     {
