@@ -147,9 +147,11 @@ class Model extends Database
     public function delete($id): void
     {
         // MONTA QUERY
-        $query = 'DELETE FROM ' . $this->table . ' WHERE ' .  $this->primaryKey . '=' . $id;
+        $query = 'DELETE FROM ' . $this->table . ' WHERE ' .  $this->primaryKey . '= :idBind';
 
         //executa a query
-        $this->modelExecute($query);
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindValue(':idBind', $id);
+        $stmt->execute();
     }
 }

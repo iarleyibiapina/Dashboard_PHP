@@ -2,7 +2,7 @@
 
 namespace App\Core;
 
-use App\Controller\NotFoundController;
+use App\Request\Request;
 
 // Implementar melhor URL com metodos, verificar se input hidden _method ou se getmethod();
 

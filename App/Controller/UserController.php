@@ -45,10 +45,12 @@ class UserController extends RenderView
             'idade' => '200',
             'email' => 'yyy@yy',
         ]);
+        var_dump($teste);
     }
-    public function delete()
+    public function delete($id)
     {
+        $id_user = $id[0];
         $teste = new User();
-        $teste->delete(7);
+        $teste->delete($id_user);
     }
 }

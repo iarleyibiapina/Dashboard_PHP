@@ -22,12 +22,13 @@ Route::get('/table',          'TableController@index');
 Route::get('/testaConexao',  'TesteController@testaConexao');
 // Usando model usuario
 Route::get('/users',         'UserController@index');
+Route::post('/users/{id}',     'UserController@create');
 Route::get('/users/{id}',     'UserController@show');
 Route::get('/users/{id}/show', 'HomeController@show');
 Route::get('/teste/{id}',    'UserController@show');
 
 Route::post('/create',       'UserController@create');
 Route::put('/update',        'UserController@update');
-Route::delete('/delete',     'UserController@delete');
+Route::delete('/delete/{id}',     'UserController@delete');
 // 
 Route::get('/outro',          'UserController@show');
