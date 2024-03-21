@@ -52,7 +52,12 @@ class Model extends Database
         $this->pdo = Database::getConnection();
     }
 
-    public function isConected()
+    /** 
+     *  Testa conexao
+     * 
+     * @return \PDO
+     */
+    public function isConected(): PDO
     {
         return $this->pdo;
     }
