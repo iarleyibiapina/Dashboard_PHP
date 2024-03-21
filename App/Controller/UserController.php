@@ -30,4 +30,29 @@ class UserController extends RenderView
         $outro = $teste->get();
         var_dump($outro);
     }
+    public function create()
+    {
+    $teste = new User();
+        $teste->create([
+            'nome' => 'juj',
+            'idade' => '100',
+            'email' => 'xxx@xxx',
+        ]);
+    }
+
+    /* broken */
+    public function update()
+    {
+        $teste = new User();
+        $teste->update(4, [
+            'nome' => 'uju',
+            'idade' => '200',
+            'email' => 'yyy@yy',
+        ]);
+    }
+    public function delete()
+    {
+        $teste = new User();
+        $teste->delete(7);
+    }
 }

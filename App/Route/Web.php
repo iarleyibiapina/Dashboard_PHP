@@ -3,7 +3,6 @@
 namespace App\Route;
 
 use App\Route\Route;
-
 /**
  * Retorna um array com 3 chaves
  * 
@@ -17,6 +16,9 @@ Route::get('/home',     'HomeController@index');
 // 
 Route::get('/teste',         'UserController@teste');
 Route::get('/teste/{id}',    'UserController@show');
+Route::post('/create',       'UserController@create');
+Route::put('/update',        'UserController@update');
+Route::delete('/delete',     'UserController@delete');
 // 
 Route::get('/charts',   'ChartController@index');
 Route::get('/table',    'UserController@index');

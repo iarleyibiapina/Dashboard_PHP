@@ -22,4 +22,11 @@ class User extends Model
      * @var array Cada valor é uma coluna.
      */
     protected $collums;
+
+    /**
+     * Nome da coluna do id primario
+     * 
+     * @var string id primario - por padrao 'id'
+     */
+    protected $primaryKey = "id_user";
 }
