@@ -9,20 +9,26 @@ use App\Route\Route;
  * 
  *  @return array ['path' => '', 'action' =>'', 'method' => ''];
  */
-Route::get('/', 'IndexController@index');
-Route::get('/password', 'IndexController@password');
-Route::get('/register', 'IndexController@register');
-Route::post('/register', 'IndexController@create');
-Route::get('/home',     'HomeController@index');
+
+// Dashboard
+Route::get('/',              'IndexController@index');
+Route::get('/password',      'IndexController@password');
+Route::get('/register',      'IndexController@register');
+Route::post('/register',     'IndexController@create');
+Route::get('/home',          'HomeController@index');
+Route::get('/charts',         'ChartController@index');
+Route::get('/table',          'TableController@index');
+// Testes
+Route::get('/testaConexao',  'TesteController@testaConexao');
+// Usando model usuario
+Route::get('/users',         'UserController@index');
+Route::post('/users/{id}',     'UserController@create');
+Route::get('/users/{id}',     'UserController@show');
+Route::get('/users/{id}/show', 'HomeController@show');
+Route::get('/teste/{id}',     'UserController@show');
+
+Route::post('/create',       'UserController@create');
+Route::put('/update/{id}',        'UserController@update');
+Route::delete('/delete/{id}',     'UserController@delete');
 // 
-Route::get('/teste',         'UserController@teste');
-Route::get('/teste/{id}',    'UserController@show');
-// 
-Route::get('/charts',   'ChartController@index');
-Route::get('/table',    'TableController@index');
-Route::get('/outro',    'UserController@show');
-Route::get('/users',          'UserController@index');
-Route::get('/users/{id}',    'UserController@show');
-// Route::get('/users/{id}/show', 'HomeController@show');
-// Route::put('/create', 'HomeController@update');
-// Route::delete('/create', 'HomeController@delete');
+Route::get('/outro',          'UserController@show');
