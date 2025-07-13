@@ -58,7 +58,7 @@ include VIEW_URL . 'sistema/partials/header.php' ?>
                 <div class="row">
                     <div class="col-xl-6">
                         <div class="card mb-4">
-                            <div class="card-header">
+                            <div class="card-header">   
                                 <i class="fas fa-chart-area me-1"></i>
                                 Area Chart Example
                             </div>
@@ -82,7 +82,7 @@ include VIEW_URL . 'sistema/partials/header.php' ?>
                         DataTable Example
                     </div>
                     <div class="card-body">
-                        <?php include VIEW_URL . 'sistema/partials/dataSimple.php' ?>
+                        <?php include VIEW_URL . 'sistema/partials/Home/DatabaseExample.view.php' ?>
                     </div>
                 </div>
             </div>
