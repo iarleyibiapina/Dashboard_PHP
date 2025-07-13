@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Model\User;
 use App\Utils\RenderView;
-use App\Request\Request;
 
 class UserController extends RenderView
 {

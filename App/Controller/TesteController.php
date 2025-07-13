@@ -2,14 +2,16 @@
 
 namespace App\Controller;
 
-use App\Database\Factory\FuncionarioFactory;
+use Exception;
+use App\Facade\Log;
 use App\Model\Model;
+use App\Database\Factory\FuncionarioFactory;
 
 /**
  * Classe de testes
  * 
  */
-class TesteController
+class TesteController extends Controller
 {
     public function testaConexao()
     {
@@ -29,6 +31,33 @@ class TesteController
     public function testeFactory()
     {
         // FuncionarioFactory::create();
-        FuncionarioFactory::count(5);
+        // FuncionarioFactory::count(5);
+    }
+
+    public function testaLog()
+    {
+        try {
+            throw new Exception("sad");
+        } catch (Exception $e) {            
+            Log::error($e->getMessage(), [
+                'code' => $e->getCode(),
+                'file' => $e->getFile(),
+                'line' => $e->getLine()
+            ]);
+        }
+    }
+
+    public function testaLogFuncao()
+    {
+        try {
+            throw new Exception("sad");
+        } catch (Exception $e) {            
+            logException($e);
+        }
+    }
+
+    public function testaRequest()
+    {
+        dd($this->request->input('teste'));
     }
 }
