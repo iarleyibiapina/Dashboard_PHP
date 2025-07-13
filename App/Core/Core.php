@@ -2,7 +2,7 @@
 
 namespace App\Core;
 
-use App\Request\Request;
+use Exception;
 
 // Implementar melhor URL com metodos, verificar se input hidden _method ou se getmethod();
 
@@ -30,8 +30,13 @@ class Core
                 $callController = '\\App\\Controller\\' . $currentController;
 
                 try {
-                    call_user_func_array([new $callController, $action], [$matches]);
+                    $Controller = new $callController;
+                    if(!method_exists($Controller, $action)){
+                        throw new Exception("Metodo nao encontrado");
+                    }
+                    call_user_func_array([$Controller, $action], [$matches]);
                 } catch (\Throwable $th) {
+                    logException($th);
                     self::notFound(500);
                 }
             }
@@ -50,6 +55,7 @@ class Core
      */
     private static function notFound(int $code = 500)
     {
+        logException(new Exception("Rota nao encontrada", 404));
         $methodError = 'code' . $code;
         $notFound = '\\App\\Controller\\NotFoundController';
         call_user_func_array([new $notFound, $methodError], []);

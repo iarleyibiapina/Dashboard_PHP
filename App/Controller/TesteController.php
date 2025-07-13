@@ -15,6 +15,13 @@ class TesteController
         print("Check");
         $userModel = new Model();
         $resultado = $userModel->isConected();
-        var_dump($resultado);
+        die(var_dump($resultado));
+    }
+
+    public function testeApi()
+    {
+        echo json_encode([
+            "teste" => true
+        ]);
     }
 }
