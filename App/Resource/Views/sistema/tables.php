@@ -29,7 +29,7 @@ include VIEW_URL . 'sistema/partials/header.php' ?>
                             DataTable Example
                         </div>
                         <div class="card-body">
-                            <?php include VIEW_URL . 'sistema/partials/dataSimple.php' ?>
+                            <?php include VIEW_URL . 'sistema/partials/Home/DatabaseExample.view.php' ?>
                         </div>
                     </div>
                 </div>
