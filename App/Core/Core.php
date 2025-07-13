@@ -2,6 +2,7 @@
 
 namespace App\Core;
 
+use App\Core\Request;
 use Exception;
 
 // Implementar melhor URL com metodos, verificar se input hidden _method ou se getmethod();
@@ -30,7 +31,7 @@ class Core
                 $callController = '\\App\\Controller\\' . $currentController;
 
                 try {
-                    $Controller = new $callController;
+                    $Controller = new $callController(new Request);
                     if(!method_exists($Controller, $action)){
                         throw new Exception("Metodo nao encontrado - " . $action . " - rota: $url");
                     }

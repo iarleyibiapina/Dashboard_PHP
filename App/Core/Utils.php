@@ -61,3 +61,17 @@ if(! function_exists('logException')){
         }
     }
 }
+
+if(! function_exists(function: 'env')){
+    /**
+     * Pega um valor definido pela variavel de ambiente,
+     * se nao definido é possivel definir um valor padrao
+     * @param string $key
+     * @param mixed $default
+     * @return string
+     */
+    function env(string $key, ?string $default = null): string
+    {
+        return $_ENV[$key] ?? $default;
+    }
+}
