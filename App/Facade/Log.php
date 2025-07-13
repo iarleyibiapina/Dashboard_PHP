@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Facade;
+
 // Essa classe segue o padrao FACADE, deve ficar em um  namespace de uma FACADE
 // ela deve ser iniciada no ponto de inicio da aplicacao, onde é definido o caminho
 // do LOG, pegando de uma .env por exemplo
@@ -104,9 +106,3 @@ final class Log
         // Dependendo do nivel de mensagem, o php faz uma acao. O 3 ele concatena o conteudo em um arquivo
     }
 }
-// exemplo de uso em um cliente
-Log::error($e->getMessage(), [
-    'code' => $e->getCode(),
-    'file' => $e->getFile(),
-    'line' => $e->getLine()
-]);

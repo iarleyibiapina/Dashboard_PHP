@@ -182,7 +182,7 @@ class Model extends Database
 
         return true;
         //executar
-        // if($stmt->execute()) return true;
+        if($stmt->execute()) return true;
     }
     public function delete($id): void
     {
