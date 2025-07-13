@@ -3,6 +3,8 @@
 namespace App\Model;
 
 use PDO;
+use PDOException;
+use App\Model\Database;
 
 /** 
  * Extends from Database, and inherit the models.
@@ -112,7 +114,25 @@ class Model extends Database
         //EXECUTA O INSERT, e fazendo o tratamento de dados no execute; 
         $this->modelExecute($query, array_values($values));
     }
-    /* TRABALHAR AINDA */
+    /**
+     * Método central para executar queries (INSERT, UPDATE, DELETE).
+     * Usa prepared statements para prevenir SQL Injection.
+     *
+     * @param string $query A string da query SQL com placeholders '?'.
+     * @param array $params Os valores para vincular aos placeholders.
+     * @return bool Retorna true em caso de sucesso.
+     */
+    protected function modelExecute(string $query, array $params = []): bool
+    {
+        try {
+            $stmt = $this->pdo->prepare($query);            
+            return $stmt->execute($params);
+        } catch (PDOException $e) {
+            logException($e);            
+            // return false;
+            throw $e;
+        }
+    }    
 
     /**
      * Usar colunas ja definidas pela model
