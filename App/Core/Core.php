@@ -32,7 +32,7 @@ class Core
                 try {
                     $Controller = new $callController;
                     if(!method_exists($Controller, $action)){
-                        throw new Exception("Metodo nao encontrado");
+                        throw new Exception("Metodo nao encontrado - " . $action . " - rota: $url");
                     }
                     call_user_func_array([$Controller, $action], [$matches]);
                 } catch (\Throwable $th) {
@@ -43,6 +43,7 @@ class Core
         }
 
         if (!$routerFound) {
+            logException(new Exception("Rota nao encontrada", 404));
             self::notFound(404);
         }
     }
@@ -55,7 +56,6 @@ class Core
      */
     private static function notFound(int $code = 500)
     {
-        logException(new Exception("Rota nao encontrada", 404));
         $methodError = 'code' . $code;
         $notFound = '\\App\\Controller\\NotFoundController';
         call_user_func_array([new $notFound, $methodError], []);

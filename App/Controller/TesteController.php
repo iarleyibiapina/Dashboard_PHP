@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Database\Factory\FuncionarioFactory;
 use App\Model\Model;
 
 /**
@@ -19,9 +20,15 @@ class TesteController
     }
 
     public function testeApi()
-    {
+    {   
         echo json_encode([
             "teste" => true
         ]);
+    }
+
+    public function testeFactory()
+    {
+        // FuncionarioFactory::create();
+        FuncionarioFactory::count(5);
     }
 }
