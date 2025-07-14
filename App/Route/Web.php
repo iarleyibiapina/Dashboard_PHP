@@ -3,6 +3,12 @@
 namespace App\Route;
 
 use App\Route\Route;
+use App\Controller\HomeController;
+use App\Controller\UserController;
+use App\Controller\ChartController;
+use App\Controller\IndexController;
+use App\Controller\TableController;
+use App\Controller\TesteController;
 
 /**
  * Retorna um array com 3 chaves
@@ -11,24 +17,24 @@ use App\Route\Route;
  */
 
 // Dashboard
-Route::get('/',              'IndexController@index');
-Route::get('/password',      'IndexController@password');
-Route::get('/register',      'IndexController@register');
-Route::post('/register',     'IndexController@create');
-Route::get('/home',          'HomeController@index');
-Route::get('/charts',         'ChartController@index');
-Route::get('/table',          'TableController@index');
+Route::get('/',              [IndexController::class, 'index']);
+Route::get('/password',      [IndexController::class, 'password']);
+Route::get('/register',      [IndexController::class, 'register']);
+Route::post('/register',     [IndexController::class, 'create']);
+Route::get('/home',          [HomeController::class,  'index']);
+Route::get('/charts',        [ChartController::class, 'index']);
+Route::get('/table',         [TableController::class, 'index']);
 // Testes
-Route::get('/testaConexao',  'TesteController@testaConexao');
+Route::get('/testaConexao',  [TesteController::class, 'testaConexao']);
 // Usando model usuario
-Route::get('/users',         'UserController@index');
-Route::post('/users/{id}',     'UserController@create');
-Route::get('/users/{id}',     'UserController@show');
-Route::get('/users/{id}/show', 'HomeController@show');
-Route::get('/teste/{id}',     'UserController@show');
+Route::get('/users',           [UserController::class ,'index']);
+Route::post('/users/{id}',     [UserController::class ,'create']);
+Route::get('/users/{id}',      [UserController::class ,'show']);
+Route::get('/users/{id}/show', [HomeController::class ,'show']);
+Route::get('/teste/{id}',      [UserController::class ,'show']);
 
-Route::post('/create',       'UserController@create');
-Route::put('/update/{id}',        'UserController@update');
-Route::delete('/delete/{id}',     'UserController@delete');
+Route::post('/create',            [UserController::class, 'create']);
+Route::put('/update/{id}',        [UserController::class, 'update']);
+Route::delete('/delete/{id}',     [UserController::class, 'delete']);
 // 
-Route::get('/outro',          'UserController@show');
+Route::get('/outro',              [UserController::class,'show']);

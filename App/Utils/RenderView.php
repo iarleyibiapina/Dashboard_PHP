@@ -4,10 +4,10 @@ namespace App\Utils;
 
 class RenderView
 {
-    public static function loadView($view, $args)
+    public static function loadView(string $view, ?array $args = null)
     {
         // tranforma chaves de um array em variaveis.
-        extract($args);
+        if($args) extract($args);
         require_once VIEW_URL . "/$view.php";
     }
 }

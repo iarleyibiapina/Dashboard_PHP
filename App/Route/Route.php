@@ -3,17 +3,27 @@
 namespace App\Route;
 
 use App\Core\Config;
+use App\Controller\Controller;
 
 // como pegar o _method?
 // criar classe request e pegar o method.
 
+// pode receber como action 'Controller@metodo' ou [Controller::class, 'metodo']
 class Route
 {
     // receber um 3 parametro para pegar o methodo do formulario
     // enviar o methodo via _method
     private static array $routes = [];
 
-    public static function get(string $path, string $action)
+    /**
+     * @param string $path
+     * @param string|array{
+     *      Controller,
+     *      string
+     * } $action
+     * @return void
+     */
+    public static function get(string $path, string|array $action)
     {
         self::$routes[] = [
             'path' => $path,
@@ -21,7 +31,15 @@ class Route
             'method' => 'GET',
         ];
     }
-    public static function post(string $path, string $action)
+    /**
+     * @param string $path
+     * @param string|array{
+     *      Controller,
+     *      string
+     * } $action
+     * @return void
+     */
+    public static function post(string $path, string|array $action)
     {
         self::$routes[] = [
             'path' => $path,
@@ -29,7 +47,15 @@ class Route
             'method' => 'POST',
         ];
     }
-    public static function put(string $path, string $action)
+    /**
+     * @param string $path
+     * @param string|array{
+     *      Controller,
+     *      string
+     * } $action
+     * @return void
+     */
+    public static function put(string $path, string|array $action)
     {
         self::$routes[] = [
             'path' => $path,
@@ -37,7 +63,15 @@ class Route
             'method' => 'PUT',
         ];
     }
-    public static function delete(string $path, string $action)
+    /**
+     * @param string $path
+     * @param string|array{
+     *      Controller,
+     *      string
+     * } $action
+     * @return void
+     */
+    public static function delete(string $path, string|array $action)
     {
         self::$routes[] = [
             'path' => $path,

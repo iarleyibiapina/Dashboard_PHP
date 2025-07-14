@@ -3,6 +3,7 @@
 namespace App\Core;
 
 use App\Controller\Controller;
+use App\Controller\NotFoundController;
 use App\Core\Request;
 use Exception;
 
@@ -25,13 +26,9 @@ class Core
                 array_shift($matches);
                 $routerFound = true;
 
-                [$currentController, $action] = explode('@', $route['action']);
+                [$currentController, $action] = $route['action']; 
+                $Controller = new $currentController(new Request);
 
-                $callController = '\\App\\Controller\\' . $currentController;
-                if(str_contains($url,'/api')){
-                    $callController = '\\App\\Controller\\Api\\' . $currentController;
-                }                
-                $Controller = new $callController(new Request);
                 try {
                     if(!method_exists($Controller, $action)){
                         throw new Exception("Metodo nao encontrado - " . $action . " - rota: $url");
@@ -59,7 +56,6 @@ class Core
     private static function notFound(int $code = 500)
     {
         $methodError = 'code' . $code;
-        $notFound = '\\App\\Controller\\NotFoundController';
-        call_user_func_array([new $notFound, $methodError], []);
+        call_user_func_array([new (NotFoundController::class), $methodError], []);
     }
 }

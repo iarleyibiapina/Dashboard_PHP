@@ -2,24 +2,34 @@
 
 namespace App\Controller;
 
+use App\Utils\RenderView;
+
 class NotFoundController
 {
     public function index()
     {
-        include VIEW_URL . 'sistema/partials/404.php';
+        RenderView::loadView(
+            'sistema/partials/404'
+        );
     }
 
     public function code404()
     {
-        include VIEW_URL . 'sistema/partials/404.php';
+        RenderView::loadView(
+            'sistema/partials/404'
+        );
     }
     public function code401()
     {
-        include VIEW_URL . 'sistema/partials/401.php';
+        RenderView::loadView(
+            'sistema/partials/401'
+        );
     }
 
     public function code500()
     {
-        include VIEW_URL . 'sistema/partials/500.php';
+        RenderView::loadView(
+            'sistema/partials/500'
+        );    
     }
 }
