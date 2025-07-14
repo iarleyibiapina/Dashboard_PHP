@@ -8,6 +8,6 @@ class RenderView
     {
         // tranforma chaves de um array em variaveis.
         if($args) extract($args);
-        require_once VIEW_URL . "/$view.php";
+        include_once VIEW_URL . $view . '.php';
     }
 }
