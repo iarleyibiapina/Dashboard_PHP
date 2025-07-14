@@ -17,13 +17,6 @@ include VIEW_URL . 'sistema/partials/header.php' ?>
                         <li class="breadcrumb-item active">Tables</li>
                     </ol>
                     <div class="card mb-4">
-                        <div class="card-body">
-                            DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
-                            <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
-                            .
-                        </div>
-                    </div>
-                    <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
                             DataTable Example
@@ -51,7 +44,6 @@ include VIEW_URL . 'sistema/partials/header.php' ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="<?= ASSETS ?>Js/scripts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
-    <script src="<?= ASSETS ?>Js/datatables-simple-demo.js"></script>
 </body>
 
 </html>
