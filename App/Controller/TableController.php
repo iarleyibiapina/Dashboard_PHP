@@ -5,13 +5,13 @@ namespace App\Controller;
 use App\Utils\RenderView;
 use App\Model\Funcionario;
 
-class TableController extends RenderView
+class TableController extends Controller
 {
     public function index()
     {
         $Funcionario = new Funcionario();
         $funcionarios = $Funcionario->get();
-        $this->loadView(
+        RenderView::loadView(
             'sistema/tables',
             [
                 "User" => "Iarley",

@@ -2,6 +2,7 @@
 
 namespace App\Core;
 
+use App\Controller\Controller;
 use App\Core\Request;
 use Exception;
 
@@ -11,10 +12,8 @@ class Core
 {
     public function run($routes)
     {
-        $url = '/';
-
-        isset($_GET['url']) ? $url .= $_GET['url'] : '';
-
+        $url = '';
+        isset($_SERVER['REQUEST_URI']) ? $url .= $_SERVER['REQUEST_URI'] : '';
         ($url != '/') ? $url = rtrim($url, '/') : $url;
         $routerFound = false;
 
@@ -29,9 +28,11 @@ class Core
                 [$currentController, $action] = explode('@', $route['action']);
 
                 $callController = '\\App\\Controller\\' . $currentController;
-
+                if(str_contains($url,'/api')){
+                    $callController = '\\App\\Controller\\Api\\' . $currentController;
+                }                
+                $Controller = new $callController(new Request);
                 try {
-                    $Controller = new $callController(new Request);
                     if(!method_exists($Controller, $action)){
                         throw new Exception("Metodo nao encontrado - " . $action . " - rota: $url");
                     }

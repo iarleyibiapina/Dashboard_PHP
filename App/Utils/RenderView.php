@@ -4,7 +4,7 @@ namespace App\Utils;
 
 class RenderView
 {
-    public function loadView($view, $args)
+    public static function loadView($view, $args)
     {
         // tranforma chaves de um array em variaveis.
         extract($args);

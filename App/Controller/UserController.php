@@ -3,9 +3,8 @@
 namespace App\Controller;
 
 use App\Model\User;
-use App\Utils\RenderView;
 
-class UserController extends RenderView
+class UserController extends Controller
 {
     public function index()
     {

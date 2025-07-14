@@ -75,3 +75,19 @@ if(! function_exists(function: 'env')){
         return $_ENV[$key] ?? $default;
     }
 }
+
+if(! function_exists('responder_json')){
+    /**
+     * Envia uma resposta HTTP formatada como JSON e encerra o script.
+    *
+    * @param mixed $dados Os dados a serem codificados em JSON.
+    * @param int $codigo_status O código de status HTTP a ser enviado (ex: 200, 404, 400).
+    */
+    function responder_json($dados, int $codigo_status = 200)
+    {
+        http_response_code($codigo_status);
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($dados, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);        
+        exit; 
+    }
+}

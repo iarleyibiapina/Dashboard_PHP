@@ -4,11 +4,11 @@ namespace App\Controller;
 
 use App\Utils\RenderView;
 
-class ChartController extends RenderView
+class ChartController extends Controller
 {
     public function index()
     {
-        $this->loadView(
+        RenderView::loadView(
             'sistema/charts',
             [
                 "User" => "Iarley",

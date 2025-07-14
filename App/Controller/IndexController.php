@@ -4,11 +4,11 @@ namespace App\Controller;
 
 use App\Utils\RenderView;
 
-class IndexController extends RenderView
+class IndexController extends Controller
 {
     public function index()
     {
-        $this->loadView(
+        RenderView::loadView(
             'index',
             [
                 'title' => 'Login - SB Admin',
@@ -18,7 +18,7 @@ class IndexController extends RenderView
 
     public function password()
     {
-        $this->loadView(
+        RenderView::loadView(
             'password',
             [
                 'title' => 'Password - SB Admin',
@@ -28,7 +28,7 @@ class IndexController extends RenderView
 
     public function register()
     {
-        $this->loadView(
+        RenderView::loadView(
             'register',
             [
                 'title' => 'Register - SB Admin',
