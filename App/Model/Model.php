@@ -194,4 +194,9 @@ class Model extends Database
         $stmt->bindValue(':idBind', $id);
         $stmt->execute();
     }
+
+    public function pdo(): PDO|PDOException
+    {
+        return $this->pdo;
+    }
 }

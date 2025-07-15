@@ -34,10 +34,10 @@ include VIEW_URL . 'sistema/partials/header.php' ?>
                                     Grafico de Barra
                                 </div>
                                 <div class="card-body">
-                                    <!-- <div id="loading-barra" style="text-align: center;">
+                                    <div id="loading-barra" style="text-align: center;">
                                         <img src="<?= ASSETS . 'img/loading.gif' ?>" alt="Carregando dados..." width="100">
                                         <p>Carregando...</p>
-                                    </div> -->
+                                    </div>
                                     <canvas id="myBarChart" width="100%" height="50"></canvas>
                                 </div>
                                 <div class="card-footer small text-muted">Dados atualizados do sistema</div>
@@ -76,5 +76,7 @@ include VIEW_URL . 'sistema/partials/header.php' ?>
             </footer>
         </div>
     </div>
+
 <?php include VIEW_URL . 'sistema/partials/footer.php' ?>
-<!-- <script src="<?php # ASSETS . 'Js/Graficos/grafico-pizza.js' ?>"></script> -->
+<script src="<?= ASSETS ?>Js/Graficos/grafico-barras.js"></script>
+<script src="<?= ASSETS . 'Js/Graficos/grafico-pizza.js' ?>"></script>

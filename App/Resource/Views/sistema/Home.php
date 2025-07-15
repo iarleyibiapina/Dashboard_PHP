@@ -60,7 +60,7 @@ include VIEW_URL . 'sistema/partials/header.php' ?>
                         <div class="card mb-4">
                             <div class="card-header">   
                                 <i class="fas fa-chart-area me-1"></i>
-                                Area Chart Example
+                                Grafico de Area
                             </div>
                             <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
                         </div>
@@ -69,7 +69,7 @@ include VIEW_URL . 'sistema/partials/header.php' ?>
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-chart-bar me-1"></i>
-                                Bar Chart Example
+                                Grafico de Barra
                             </div>
                             <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
                         </div>
@@ -79,7 +79,7 @@ include VIEW_URL . 'sistema/partials/header.php' ?>
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
-                        DataTable Example
+                        Dados da tabela
                     </div>
                     <div class="card-body">
                         <?php include VIEW_URL . 'sistema/partials/Home/DatabaseExample.view.php' ?>
@@ -90,7 +90,7 @@ include VIEW_URL . 'sistema/partials/header.php' ?>
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid px-4">
                 <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                    <div class="text-muted">Copyright &copy; II 2025</div>
                     <div>
                         <a href="#">Privacy Policy</a>
                         &middot;
@@ -102,5 +102,5 @@ include VIEW_URL . 'sistema/partials/header.php' ?>
     </div>
 </div>
 
-
 <?php include VIEW_URL . 'sistema/partials/footer.php' ?>
+<script src="<?= ASSETS ?>Js/Graficos/grafico-barras.js"></script>
